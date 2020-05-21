@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity() {
             R.id.box_three_text -> view.setBackgroundResource(R.drawable.tile_three)
             R.id.box_four_text -> view.setBackgroundResource(R.drawable.tile_four)
             R.id.box_five_text -> view.setBackgroundResource(R.drawable.tile_five)
+            R.id.red_button -> view.setBackgroundResource(R.color.my_red)
+            R.id.yellow_button -> view.setBackgroundResource(R.color.my_yellow)
+            R.id.green_button -> view.setBackgroundResource(R.color.my_green)
             else -> view.setBackgroundResource(R.drawable.tile_six)
         }
     }
@@ -36,9 +40,14 @@ class MainActivity : AppCompatActivity() {
 
         val rootConstrantLayout = findViewById<View>(R.id.constraint_layout)
 
+        val redButton = findViewById<Button>(R.id.red_button)
+        val greenButton = findViewById<Button>(R.id.green_button)
+        val yellowButton = findViewById<Button>(R.id.yellow_button)
+
         val clickableViews: List<View> =
             listOf(boxOneText, boxTwoText, boxThreeText,
-                    boxFourText, boxFiveText, rootConstrantLayout)
+                    boxFourText, boxFiveText, rootConstrantLayout,
+                    redButton, greenButton, yellowButton)
 
         for (item in clickableViews) {
             item.setOnClickListener { makeColored(it)}
